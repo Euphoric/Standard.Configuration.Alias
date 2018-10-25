@@ -1,6 +1,19 @@
 version: 0.1.{build}
 image: Visual Studio 2017
-configuration: Release
-build:
-  publish_nuget: true
-  verbosity: minimal
+init:
+  # Good practise, because Windows line endings are different from Unix/Linux ones
+  - cmd: git config --global core.autocrlf true
+before_build:
+  # Display .NET Core version
+  - cmd: dotnet --version
+  # Display minimal restore text
+  - cmd: dotnet restore Standard.Configuration.Alias --verbosity m
+build_script:
+  - cmd: dotnet publish Standard.Configuration.Alias
+test_script:
+  # restore packages for our unit tests
+  - cmd: dotnet restore Standard.Configuration.Alias.Test --verbosity m
+  # run the unit tests (requires changing into the test directory)
+  - cmd: cd tests
+  - cmd: dotnet xunit
+deploy: off
