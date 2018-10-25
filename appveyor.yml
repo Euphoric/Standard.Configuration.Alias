@@ -10,4 +10,4 @@ build_script:
   - cmd: dotnet build -c Release
 test_script:
   # run the unit tests (requires changing into the test directory)
-  - cmd: dotnet test Standard.Configuration.Alias.Test --no-build
+  - cmd: dotnet test -c Release --no-build Standard.Configuration.Alias.Test
