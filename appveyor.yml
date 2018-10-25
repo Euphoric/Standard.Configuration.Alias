@@ -20,9 +20,9 @@ test_script:
 artifacts:
   - path: '**\*.nupkg'
     name: NuGet
-#deploy:
-#  provider: NuGet
-#  api_key:
-#    secure: FSoixCDwYnyOba7fxlvt7uPkaPQUoqToF2mrzDCnQEAPBHvzgw+N7WYUfsxwTrFT
-#  skip_symbols: false
-#  artifact: /.*\.nupkg/
+deploy:
+  provider: NuGet
+  api_key:
+    secure: FSoixCDwYnyOba7fxlvt7uPkaPQUoqToF2mrzDCnQEAPBHvzgw+N7WYUfsxwTrFT
+  skip_symbols: false
+  artifact: /.*\.nupkg/
