@@ -9,7 +9,7 @@ before_build:
   # Display minimal restore text
   - cmd: dotnet restore Standard.Configuration.Alias --verbosity m
 build_script:
-  - cmd: dotnet publish Standard.Configuration.Alias
+  - cmd: dotnet build Standard.Configuration.Alias -c Release
 test_script:
   # restore packages for our unit tests
   - cmd: dotnet restore Standard.Configuration.Alias.Test --verbosity m
