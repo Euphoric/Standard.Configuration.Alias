@@ -1,4 +1,4 @@
-version: 0.1.{build}-beta
+version: 0.1.{build}
 image: Visual Studio 2017
 init:
   # Good practise, because Windows line endings are different from Unix/Linux ones
@@ -10,7 +10,7 @@ dotnet_csproj:
   patch: true
   file: '**\*.csproj'
   version: '{version}'
-  package_version: '{version}'
+  package_version: '{version}-beta'
   assembly_version: '{version}'
   file_version: '{version}'
   informational_version: '{version}'
