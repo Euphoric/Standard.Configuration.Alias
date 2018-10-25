@@ -20,7 +20,7 @@ test_script:
   # run the unit tests (requires changing into the test directory)
   - cmd: dotnet test -c Release --no-build Standard.Configuration.Alias.Test
 artifacts:
-  - path: **\*.nupkg
+  - path: '**\*.nupkg'
     name: NuGet
 deploy:
   provider: NuGet
