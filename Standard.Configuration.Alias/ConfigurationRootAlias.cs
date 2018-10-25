@@ -15,14 +15,11 @@ namespace Microsoft.Extensions.Configuration.Alias
          _aliases = aliases;
       }
 
-      public IConfigurationSection GetSection(string key)
-      {
-         throw new NotImplementedException();
-      }
+      public IConfigurationSection GetSection(string key) => new ConfigurationSection(this, key);
 
       public IEnumerable<IConfigurationSection> GetChildren()
       {
-         throw new NotImplementedException();
+         return GetChildrenImplementation(null);
       }
 
       public IChangeToken GetReloadToken()
@@ -49,12 +46,17 @@ namespace Microsoft.Extensions.Configuration.Alias
 
          return null;
       }
-
+      
       public void Reload()
       {
          _configurationRoot.Reload();
       }
 
       public IEnumerable<IConfigurationProvider> Providers => _configurationRoot.Providers;
+
+      internal IEnumerable<IConfigurationSection> GetChildrenImplementation(string path)
+      {
+         throw new NotImplementedException();
+      }
    }
 }
