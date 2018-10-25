@@ -7,7 +7,7 @@ before_build:
   # Display .NET Core version
   - cmd: dotnet --version
 build_script:
-  - cmd: dotnet build Standard.Configuration.Alias -c Release
+  - cmd: dotnet build -c Release
 test_script:
   # run the unit tests (requires changing into the test directory)
-  - cmd: dotnet test
+  - cmd: dotnet test Standard.Configuration.Alias.Test --no-build
