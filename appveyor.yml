@@ -6,8 +6,16 @@ init:
 before_build:
   # Display .NET Core version
   - cmd: dotnet --version
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
 build_script:
-  - cmd: dotnet build -c Release /p:Version={APPVEYOR_BUILD_VERSION}
+  - cmd: dotnet build -c Release
 test_script:
   # run the unit tests (requires changing into the test directory)
   - cmd: dotnet test -c Release --no-build Standard.Configuration.Alias.Test
